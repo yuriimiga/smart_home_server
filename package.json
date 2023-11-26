@@ -1,7 +1,8 @@
 {
-  "name": "untitled",
-  "version": "0.0.0",
-  "private": true,
+  "name": "smart_home_projct",
+  "version": "1.0.0",
+  "author": "Miga Yurii <migayura340@gmail.com>",
+  "type": "module",
   "scripts": {
     "start": "node ./bin/www"
   },
