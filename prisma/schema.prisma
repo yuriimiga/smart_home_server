@@ -1,0 +1,25 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb+srv://migayura340:SyM4bNMpIRm9Xz3@cluster0.uynxzdu.mongodb.net/smart_house"
+}
+
+model Device {
+  id          String  @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  description String
+  roomId      String
+  room        Room    @relation(fields: [roomId], references: [id])
+  status      Boolean @default(false)
+  category    String
+  favorite    Boolean @default(false)
+}
+
+model Room {
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  devices    Device[]
+}
