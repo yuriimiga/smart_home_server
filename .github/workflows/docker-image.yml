@@ -21,7 +21,7 @@ jobs:
           
     - name: Build the Docker image
       run: |
-        docker buildx build . --tag ghcr.io/yulchi14/smarthome:latest
+        docker buildx build . --tag yulchi14/smarthome:latest
         docker push ghcr.io/yulchik14/smarthome:latest
 
       
