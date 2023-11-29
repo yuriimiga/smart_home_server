@@ -11,11 +11,6 @@ router.get('/get_all_favorite_devices', async function(req, res, next) {
     res.send(await prisma.device.findMany({where: {favorite: true}}))
 });
 
-router.post('/get_devices_in_room', async function(req, res,) {
-    const prisma_res = await prisma.device.findMany({where : {roomId: req.body.id}});
-    res.send({devices: prisma_res, roomName: (await prisma.room.findUnique({where: {id: req.body.id}})).name});
-});
-
 router.post('/find', async function(req, res,next){
     let query = {where:{
 
@@ -70,6 +65,11 @@ router.post("/update", async function (req, res, next){
 
 router.get('/get_all_rooms', async function(req, res, next) {
     res.send(await prisma.room.findMany())
+});
+
+router.post('/get_devices_in_room', async function(req, res,) {
+    const prisma_res = await prisma.device.findMany({where : {roomId: req.body.id}});
+    res.send({devices: prisma_res, roomName: (await prisma.room.findUnique({where: {id: req.body.id}})).name});
 });
 
 router.post('/create_room', async function(req, res, next){
