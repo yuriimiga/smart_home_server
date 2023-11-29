@@ -20,5 +20,5 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
           
     - name: Build the Docker image
-      run: docker buildx build . --tag ghcr.io/yulchikmiga/smarthome:latest
-           docker push ghcr.io/yulchikmiga/smarthome:latest
+      run: docker buildx build . --tag ghcr.io/yulchikmiga/smarthome:latest && docker push ghcr.io/yulchikmiga/smarthome:latest
+      
